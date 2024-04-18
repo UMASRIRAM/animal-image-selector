@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="f289941" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0" camunda:diagramRelationId="5d0d4e8a-1cbb-49a3-819d-6acc248e10ec">
+  <bpmn:process id="retrieve_image" name="Retrieve Image" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:extensionElements />
+      <bpmn:outgoing>Flow_0pawh5z</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0pawh5z" sourceRef="StartEvent_1" targetRef="Activity_04eiwxw" />
+    <bpmn:businessRuleTask id="Activity_04eiwxw" name="Animal API">
+      <bpmn:extensionElements>
+        <zeebe:calledDecision decisionId="Decision_191d2nn" resultVariable="apiurl" />
+        <zeebe:ioMapping>
+          <zeebe:input source="=category" target="category" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0pawh5z</bpmn:incoming>
+      <bpmn:outgoing>Flow_1bpba8y</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:sequenceFlow id="Flow_1bpba8y" sourceRef="Activity_04eiwxw" targetRef="save_image" />
+    <bpmn:serviceTask id="save_image" name="Save Image">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="saveimage" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1bpba8y</bpmn:incoming>
+      <bpmn:outgoing>Flow_10lfpl2</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_177sv80">
+      <bpmn:incoming>Flow_10lfpl2</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_10lfpl2" sourceRef="save_image" targetRef="Event_177sv80" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="retrieve_image">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="122" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0xafhml_di" bpmnElement="Activity_04eiwxw">
+        <dc:Bounds x="240" y="100" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1yp6xvy_di" bpmnElement="save_image">
+        <dc:Bounds x="400" y="100" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_177sv80_di" bpmnElement="Event_177sv80">
+        <dc:Bounds x="592" y="122" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0pawh5z_di" bpmnElement="Flow_0pawh5z">
+        <di:waypoint x="188" y="140" />
+        <di:waypoint x="240" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1bpba8y_di" bpmnElement="Flow_1bpba8y">
+        <di:waypoint x="340" y="140" />
+        <di:waypoint x="400" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10lfpl2_di" bpmnElement="Flow_10lfpl2">
+        <di:waypoint x="500" y="140" />
+        <di:waypoint x="592" y="140" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

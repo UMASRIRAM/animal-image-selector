@@ -1,0 +1,14 @@
+*.iml
+animal-image-selector.iml
+
+.classpath
+.idea/
+.project
+.settings/
+
+bin/
+build/
+classes/
+target/
+
+**/.DS_Store

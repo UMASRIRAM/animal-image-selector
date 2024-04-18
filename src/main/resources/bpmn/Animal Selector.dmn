@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1ojq682" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Web Modeler" exporterVersion="f289941" camunda:diagramRelationId="e69f89af-f68c-46d5-afb8-b3d9a27edd04" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0">
+  <decision id="Decision_191d2nn" name="Animal API LInk">
+    <informationRequirement id="InformationRequirement_0rukt1q">
+      <requiredInput href="#InputData_14pnup3" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_05z5olv" biodi:annotationsWidth="400">
+      <input id="Input_1" biodi:width="192">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>category</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0na3pdb">
+        <inputExpression id="LiteralExpression_128x406" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" typeRef="string" />
+      <rule id="DecisionRule_174s2ue">
+        <inputEntry id="UnaryTests_03qxr0x">
+          <text>"dog"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gz2fx8">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1i9p5cg">
+          <text>https://place.dog/300/200</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16fmjrp">
+        <inputEntry id="UnaryTests_0z0hyn8">
+          <text>"bear"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dcf3t3">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0c0pq1x">
+          <text>https://placebear.com/200/300</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07vqonf">
+        <inputEntry id="UnaryTests_0eq4s2z">
+          <text>"cat"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fdfx52">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1s74kbv">
+          <text>https://cdn2.thecatapi.com/images/ebv.jpg</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_14pnup3" name="category" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_191d2nn">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1goqr1b" dmnElementRef="InputData_14pnup3">
+        <dc:Bounds height="45" width="125" x="188" y="268" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0r5c7dy" dmnElementRef="InformationRequirement_0rukt1q">
+        <di:waypoint x="251" y="268" />
+        <di:waypoint x="250" y="200" />
+        <di:waypoint x="250" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

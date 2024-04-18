@@ -1,0 +1,47 @@
+<html>
+
+<body>
+<h1>Awesome website that allows you to view animals you love.</h1>
+
+<div>
+    <label> Select Animal you love</label>
+    <select id="animalData" name="animalData">
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="bear">Bear</option>
+    </select>
+
+    <button id ="btnImage" >Retrieve Image</button>
+</div>
+<br/>
+<div id="animalImage">
+
+</div>
+</body>
+<script src=https://code.jquery.com/jquery-3.6.0.js></script>
+<script type="text/javascript">
+
+    $("#btnImage").click(function() {
+        retrieveAnimalImage();
+    });
+
+
+    function retrieveAnimalImage(){
+        $("#animalImage img").map(function() {
+            $(this).remove();
+        })
+
+        $.ajax({
+            url: "/category/"+$('#animalData').val(),
+            type: "post"
+        }).done(function(result) {
+            let oImg = document.createElement("img");
+            oImg.setAttribute("id", "animalImg");
+            oImg.setAttribute('src', 'data:image/jpeg;base64,' + result);
+            $("#animalImage").append(oImg);
+        })
+    }
+</script>
+
+
+</html>
